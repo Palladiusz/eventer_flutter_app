@@ -1,4 +1,5 @@
 import 'package:eventer/constants.dart';
+import 'package:eventer/screens/details_screen.dart';
 import 'package:eventer/widgets/event_card.dart';
 import 'package:eventer/widgets/my_appbar.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,19 @@ class HomeScreen extends StatelessWidget {
               )
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.grey[200],
+          child: Icon(
+            Icons.note_add,
+            color: kOrangeColor,
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => DetailsScreen()),
+            );
+          },
         ),
       ),
     );

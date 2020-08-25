@@ -16,7 +16,7 @@ class EventCard extends StatelessWidget {
         color: kMinorBrownColor,
         borderRadius: BorderRadius.circular(15),
       ),
-      margin: EdgeInsets.only(top: 15, bottom: 15, left: 0, right: 20),
+      margin: EdgeInsets.only(top: 15, bottom: 15, left: 5, right: 20),
       width: 350,
       child: Column(
         children: [
