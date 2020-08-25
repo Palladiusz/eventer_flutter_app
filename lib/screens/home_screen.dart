@@ -1,4 +1,5 @@
 import 'package:eventer/constants.dart';
+import 'package:eventer/widgets/event_card.dart';
 import 'package:eventer/widgets/my_appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,24 @@ class HomeScreen extends StatelessWidget {
         body: Container(
           color: kMainBrownColor,
           child: ListView(
-            children: [],
+            scrollDirection: Axis.horizontal,
+            children: [
+              EventCard(
+                date: DateTime.now(),
+                title: 'Test1',
+                desc: 'kjhkjsjjjjjjj',
+              ),
+              EventCard(
+                date: DateTime.now(),
+                title: 'Test1',
+                desc: 'kjhkjsjjjjjjj',
+              ),
+              EventCard(
+                date: DateTime.now(),
+                title: 'Test1',
+                desc: 'kjhkjsjjjjjjj',
+              )
+            ],
           ),
         ),
       ),
