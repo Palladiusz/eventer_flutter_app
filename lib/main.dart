@@ -1,3 +1,4 @@
+import 'package:eventer/constants.dart';
 import 'package:eventer/screens/details_screen.dart';
 import 'package:eventer/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.lightBlue[800],
-        accentColor: Colors.cyan[600],
+        primaryColor: kRedColor,
+        accentColor: kMinorBrownColor,
       ),
       initialRoute: HomeScreen.id,
       routes: {

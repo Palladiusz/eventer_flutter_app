@@ -1,3 +1,4 @@
+import 'package:eventer/constants.dart';
 import 'package:eventer/widgets/my_appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,12 @@ class HomeScreen extends StatelessWidget {
         appBar: MyAppBar(
           title: 'Event List',
         ),
-        body: Container(),
+        body: Container(
+          color: kMainBrownColor,
+          child: ListView(
+            children: [],
+          ),
+        ),
       ),
     );
   }
