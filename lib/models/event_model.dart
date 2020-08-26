@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:build_runner/build_runner.dart';
 
 part 'event_model.g.dart';
 

@@ -1,4 +1,5 @@
 import 'package:eventer/constants.dart';
+import 'package:eventer/services/eventer_services.dart';
 import 'package:eventer/widgets/my_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,8 @@ import 'package:intl/intl.dart';
 
 class DetailsScreen extends StatelessWidget {
   static const String id = '/details_screen';
+  final _eventerServices = EventerServices();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -113,7 +116,9 @@ class DetailsScreen extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   color: kRedColor,
-                  onPressed: () {},
+                  onPressed: () {
+                    _eventerServices.fetchData();
+                  },
                 ),
               ],
             ),
