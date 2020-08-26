@@ -1,6 +1,7 @@
+import 'package:eventer/blocs/bloc/list_bloc.dart';
 import 'package:eventer/constants.dart';
 import 'package:eventer/screens/details_screen.dart';
-import 'package:eventer/screens/home_screen.dart';
+import 'package:eventer/screens/home_screen_provider.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
         primaryColor: kRedColor,
         accentColor: kMinorBrownColor,
       ),
-      initialRoute: HomeScreen.id,
+      initialRoute: HomeScreenProvider.id,
       routes: {
-        HomeScreen.id: (context) => HomeScreen(),
+        HomeScreenProvider.id: (context) => HomeScreenProvider(),
         DetailsScreen.id: (context) => DetailsScreen(),
       },
     );

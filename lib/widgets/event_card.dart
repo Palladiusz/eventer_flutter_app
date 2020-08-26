@@ -7,8 +7,7 @@ class EventCard extends StatelessWidget {
   final DateTime date;
   final bool checkedOut;
 
-  const EventCard({Key key, this.title, this.desc, this.date, this.checkedOut})
-      : super(key: key);
+  const EventCard({this.title, this.desc, this.date, this.checkedOut});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class EventCard extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 40,
+              fontSize: 4,
             ),
           ),
           SizedBox(
@@ -36,7 +35,7 @@ class EventCard extends StatelessWidget {
           Text(
             desc,
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 8,
             ),
           ),
           SizedBox(
@@ -61,7 +60,7 @@ class EventCard extends StatelessWidget {
                 ),
               ),
               Text(
-                '${date.day}',
+                'lol',
                 style: TextStyle(
                   fontSize: 40,
                 ),
@@ -69,7 +68,7 @@ class EventCard extends StatelessWidget {
             ],
           ),
           Text(
-            '${date.hour.toString()}:${date.minute.toString()}',
+            'loll',
             style: TextStyle(
               fontSize: 100,
             ),
