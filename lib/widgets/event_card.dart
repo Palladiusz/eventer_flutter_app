@@ -12,6 +12,7 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         color: kMinorBrownColor,
         borderRadius: BorderRadius.circular(15),
@@ -21,12 +22,16 @@ class EventCard extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 20,
+            height: 30,
           ),
           Text(
             title,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
             style: TextStyle(
-              fontSize: 4,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
             ),
           ),
           SizedBox(
@@ -34,8 +39,11 @@ class EventCard extends StatelessWidget {
           ),
           Text(
             desc,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 4,
             style: TextStyle(
-              fontSize: 8,
+              fontSize: 14,
             ),
           ),
           SizedBox(

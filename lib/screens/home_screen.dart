@@ -19,27 +19,9 @@ class HomeScreen extends StatelessWidget {
           child: BlocBuilder<ListBloc, ListState>(
             builder: (context, state) {
               if (state is ListLoaded) {
-                print(state.eventsList);
                 return ListView(
                   scrollDirection: Axis.horizontal,
                   children: state.eventsList,
-                  // children: [
-                  //   EventCard(
-                  //     date: DateTime.now(),
-                  //     title: 'Test1',
-                  //     desc: 'kjhkjsjjjjjjj',
-                  //   ),
-                  //   EventCard(
-                  //     date: DateTime.now(),
-                  //     title: 'Test1',
-                  //     desc: 'kjhkjsjjjjjjj',
-                  //   ),
-                  //   EventCard(
-                  //     date: DateTime.now(),
-                  //     title: 'Test1',
-                  //     desc: 'kjhkjsjjjjjjj',
-                  //   ),
-                  // ],
                 );
               } else {
                 return Container();
