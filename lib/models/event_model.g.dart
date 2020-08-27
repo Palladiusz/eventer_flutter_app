@@ -8,18 +8,19 @@ part of 'event_model.dart';
 
 EventModel _$EventModelFromJson(Map<String, dynamic> json) {
   return EventModel(
-      id: json['id'] as int,
-      title: json['title'] as String,
-      desc: json['desc'] as String,
-      date: DateTime.parse(json['date'] as String),
-      checkedOut: json['checkedOut'] as bool);
+    id: json['id'] as int,
+    title: json['name'] as String,
+    desc: json['description'] as String,
+    date: json['date'] == null ? null : DateTime.parse(json['date'] as String),
+    checkedOut: json['checkedOut'] as bool,
+  );
 }
 
 Map<String, dynamic> _$EventModelToJson(EventModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
-      'desc': instance.desc,
-      'date': instance.date.toIso8601String(),
-      'checkedOut': instance.checkedOut
+      'name': instance.title,
+      'description': instance.desc,
+      'date': instance.date?.toIso8601String(),
+      'checkedOut': instance.checkedOut,
     };

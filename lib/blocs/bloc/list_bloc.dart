@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -19,21 +18,20 @@ class ListBloc extends Bloc<ListEvent, ListState> {
   Stream<ListState> mapEventToState(
     ListEvent event,
   ) async* {
+    //TODO: State should return viewModel not widget
     yield ListLoaded(await _loadListofEventCards());
   }
 
   Future<List<EventCard>> _loadListofEventCards() async {
-    List<dynamic> data = await _eventerServices.fetchData();
-
-    return data.map((event) {
-      var json = EventModel.fromJson(event);
-      print(json.date);
-      return EventCard(
-        title: json.title,
-        desc: json.desc,
-        date: json.date,
-        checkedOut: json.checkedOut,
-      );
-    }).toList();
+    List<EventModel> data = await _eventerServices.fetchData();
+    //TODO: NEVER MAP TO WIDGET INSIDE BLOC, IT'S SCREEN' WORK NOT THE BLOC
+    return data
+        .map((e) => EventCard(
+              title: e.title,
+              desc: e.desc,
+              date: e.date,
+              checkedOut: e.checkedOut,
+            ))
+        .toList();
   }
 }

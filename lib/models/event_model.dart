@@ -2,15 +2,20 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'event_model.g.dart';
 
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 class EventModel {
-  EventModel({this.id, this.title, this.desc, this.date, this.checkedOut});
-
   int id;
+
+  @JsonKey(name: "name") //without this it wont work.
   String title;
+
+  @JsonKey(name: "description") //without this it wont work.
   String desc;
+
   DateTime date;
   bool checkedOut;
+
+  EventModel({this.id, this.title, this.desc, this.date, this.checkedOut});
 
   factory EventModel.fromJson(Map<String, dynamic> json) =>
       _$EventModelFromJson(json);
