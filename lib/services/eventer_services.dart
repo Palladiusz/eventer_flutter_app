@@ -10,4 +10,9 @@ class EventerServices {
         (response.data as List).map((e) => EventModel.fromJson(e)).toList();
     return data;
   }
+
+  Stream<int> tick({int ticks}) {
+    return Stream.periodic(Duration(seconds: 1), (x) => ticks - x - 1)
+        .take(ticks);
+  }
 }
