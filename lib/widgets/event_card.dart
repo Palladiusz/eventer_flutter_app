@@ -58,27 +58,11 @@ class EventCard extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Days:',
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-              ),
-              Text(
-                'lol',
-                style: TextStyle(
-                  fontSize: 40,
-                ),
-              ),
-            ],
-          ),
           Text(
-            'loll',
+            '${date.difference(DateTime.now()).inDays}d ${date.difference(DateTime.now()).inHours % 24}h ${date.difference(DateTime.now()).inMinutes % 60}m ${date.difference(DateTime.now()).inSeconds % 60}s',
             style: TextStyle(
-              fontSize: 100,
+              fontWeight: FontWeight.bold,
+              fontSize: 40,
             ),
           ),
           SizedBox(
