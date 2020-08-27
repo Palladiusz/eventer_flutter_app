@@ -10,7 +10,7 @@ abstract class ListState extends Equatable {
 class ListInitial extends ListState {}
 
 class ListLoaded extends ListState {
-  final List<EventCard> eventsList;
+  final List<EventModel> eventsList;
 
   ListLoaded(this.eventsList);
 

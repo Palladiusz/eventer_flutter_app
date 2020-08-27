@@ -19,19 +19,6 @@ class ListBloc extends Bloc<ListEvent, ListState> {
     ListEvent event,
   ) async* {
     //TODO: State should return viewModel not widget
-    yield ListLoaded(await _loadListofEventCards());
-  }
-
-  Future<List<EventCard>> _loadListofEventCards() async {
-    List<EventModel> data = await _eventerServices.fetchData();
-    //TODO: NEVER MAP TO WIDGET INSIDE BLOC, IT'S SCREEN' WORK NOT THE BLOC
-    return data
-        .map((e) => EventCard(
-              title: e.title,
-              desc: e.desc,
-              date: e.date,
-              checkedOut: e.checkedOut,
-            ))
-        .toList();
+    yield ListLoaded(await _eventerServices.fetchData());
   }
 }

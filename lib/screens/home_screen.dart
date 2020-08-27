@@ -21,7 +21,14 @@ class HomeScreen extends StatelessWidget {
               if (state is ListLoaded) {
                 return ListView(
                   scrollDirection: Axis.horizontal,
-                  children: state.eventsList,
+                  children: state.eventsList
+                      .map((e) => EventCard(
+                            title: e.title,
+                            desc: e.desc,
+                            date: e.date,
+                            checkedOut: e.checkedOut,
+                          ))
+                      .toList(),
                 );
               } else {
                 return Container();
