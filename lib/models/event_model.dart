@@ -6,10 +6,10 @@ part 'event_model.g.dart';
 class EventModel {
   int id;
 
-  @JsonKey(name: "name") //without this it wont work.
+  @JsonKey(name: "name")
   String title;
 
-  @JsonKey(name: "description") //without this it wont work.
+  @JsonKey(name: "description")
   String desc;
 
   DateTime date;

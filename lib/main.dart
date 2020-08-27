@@ -1,4 +1,3 @@
-import 'package:eventer/blocs/bloc/list_bloc.dart';
 import 'package:eventer/constants.dart';
 import 'package:eventer/screens/details_screen.dart';
 import 'package:eventer/screens/home_screen_provider.dart';
