@@ -1,4 +1,4 @@
-import 'package:eventer/blocs/bloc/list_bloc.dart';
+import 'package:eventer/blocs/list_bloc/list_bloc.dart';
 import 'package:eventer/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
