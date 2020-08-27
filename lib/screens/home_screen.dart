@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:eventer/blocs/item_bloc/item_bloc.dart';
 import 'package:eventer/blocs/list_bloc/list_bloc.dart';
 import 'package:eventer/constants.dart';
 import 'package:eventer/screens/details_screen.dart';
@@ -21,14 +24,15 @@ class HomeScreen extends StatelessWidget {
               if (state is ListLoaded) {
                 return ListView(
                   scrollDirection: Axis.horizontal,
-                  children: state.eventsList
-                      .map((e) => EventCard(
-                            title: e.title,
-                            desc: e.desc,
-                            date: e.date,
-                            checkedOut: e.checkedOut,
-                          ))
-                      .toList(),
+                  children: state.eventsList.map(
+                    (model) {
+                      return BlocProvider<ItemBloc>(
+                        create: (BuildContext context) =>
+                            ItemBloc()..add(LoadItemsEvent(model)),
+                        child: EventCard(),
+                      );
+                    },
+                  ).toList(),
                 );
               } else {
                 return Container();
