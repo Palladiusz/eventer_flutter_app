@@ -35,6 +35,9 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
         );
       }
     }
+    if (event is ItemCheckEvent) {
+      model.checkedOut ? model.checkedOut = false : model.checkedOut = true;
+    }
   }
 
   Future<ItemTimeState> _mapItemsDatetoTimeStates() async {

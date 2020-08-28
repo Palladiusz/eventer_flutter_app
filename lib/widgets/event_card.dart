@@ -102,8 +102,10 @@ class EventCard extends StatelessWidget {
                     ],
                   ),
                   child: Checkbox(
-                    value: false,
-                    onChanged: (value) {},
+                    value: state.model.checkedOut,
+                    onChanged: (value) {
+                      BlocProvider.of<ItemBloc>(context).add(ItemCheckEvent());
+                    },
                   ),
                 ),
               ],

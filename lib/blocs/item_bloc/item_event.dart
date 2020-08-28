@@ -20,3 +20,5 @@ class ItemTicked extends ItemEvent {
 }
 
 class ItemTimerStartEvent extends ItemEvent {}
+
+class ItemCheckEvent extends ItemEvent {}
