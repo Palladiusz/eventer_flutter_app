@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           title: 'Event List',
         ),
         body: Container(
-          color: kMainBrownColor,
+          color: kLightBlue,
           child: BlocBuilder<ListBloc, ListState>(
             builder: (context, state) {
               if (state is ListLoaded) {
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.grey[200],
           child: Icon(
             Icons.note_add,
-            color: kOrangeColor,
+            color: kVeryDarkBlue,
           ),
           onPressed: () {
             Navigator.push(

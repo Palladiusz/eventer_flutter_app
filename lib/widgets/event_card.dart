@@ -16,15 +16,15 @@ class EventCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        color: kMinorBrownColor,
+        color: kDarkBlue,
         gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
-            colors: [kRedColor, kMinorBrownColor]),
+            colors: [kVeryDarkBlue, kDarkBlue]),
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey[600],
+            color: Color(0xff1a1a2e),
             offset: Offset(6, 6),
           ),
         ],
@@ -48,7 +48,7 @@ class EventCard extends StatelessWidget {
                   maxLines: 2,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                    fontSize: 21,
                   ),
                 ),
                 Text(
@@ -57,7 +57,7 @@ class EventCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   maxLines: 6,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 17,
                   ),
                 ),
                 SizedBox(
@@ -96,11 +96,18 @@ class EventCard extends StatelessWidget {
                   width: 60,
                   height: 60,
                   decoration: BoxDecoration(
+                    color: kLightBlue,
                     shape: BoxShape.circle,
                     border: Border.all(
                       color: Colors.black,
                       width: 2,
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xff1a1a2e),
+                        offset: Offset(6, 6),
+                      ),
+                    ],
                   ),
                   child: Checkbox(
                     value: false,

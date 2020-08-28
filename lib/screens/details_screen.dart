@@ -17,7 +17,7 @@ class DetailsScreen extends StatelessWidget {
         appBar: MyAppBar(
           title: 'Create New Event',
         ),
-        backgroundColor: kMinorBrownColor,
+        backgroundColor: kDarkBlue,
         body: SingleChildScrollView(
           child: Center(
             child: Column(
@@ -36,7 +36,10 @@ class DetailsScreen extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: 'Tap to add tittle',
-                      hintStyle: TextStyle(fontSize: 28),
+                      hintStyle: TextStyle(
+                        fontSize: 28,
+                        color: Colors.grey,
+                      ),
                       border: InputBorder.none,
                     ),
                     textAlign: TextAlign.center,
@@ -61,7 +64,10 @@ class DetailsScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Tap to add description',
-                      hintStyle: TextStyle(fontSize: 18),
+                      hintStyle: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
+                      ),
                     ),
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18),
@@ -102,7 +108,10 @@ class DetailsScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Tap to pick date',
-                      hintStyle: TextStyle(fontSize: 18),
+                      hintStyle: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
+                      ),
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -115,7 +124,7 @@ class DetailsScreen extends StatelessWidget {
                     'Submit event',
                     style: TextStyle(color: Colors.white),
                   ),
-                  color: kRedColor,
+                  color: kVeryDarkBlue,
                   onPressed: () {
                     _eventerServices.fetchData();
                   },
