@@ -110,7 +110,10 @@ class EventCard extends StatelessWidget {
             );
           } else {
             return Container(
-              child: Text('problem'),
+              child: Text(
+                'Loading...',
+                textAlign: TextAlign.center,
+              ),
             );
           }
         },
