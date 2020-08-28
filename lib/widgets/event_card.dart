@@ -17,7 +17,17 @@ class EventCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         color: kMinorBrownColor,
+        gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [kRedColor, kMinorBrownColor]),
         borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey[600],
+            offset: Offset(6, 6),
+          ),
+        ],
       ),
       margin: EdgeInsets.only(top: 15, bottom: 15, left: 5, right: 20),
       width: 350,
@@ -26,9 +36,10 @@ class EventCard extends StatelessWidget {
           if (state is ItemLoadedState) {
             print(_eventerServices.tick(ticks: 5));
             return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 Text(
                   state.title,
@@ -37,23 +48,20 @@ class EventCard extends StatelessWidget {
                   maxLines: 2,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontSize: 20,
                   ),
-                ),
-                SizedBox(
-                  height: 40,
                 ),
                 Text(
                   state.desc,
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
-                  maxLines: 4,
+                  maxLines: 6,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 18,
                   ),
                 ),
                 SizedBox(
-                  height: 70,
+                  height: 10,
                 ),
                 Text(
                   'Time to start event:',
