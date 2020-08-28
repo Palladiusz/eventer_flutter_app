@@ -10,10 +10,10 @@ abstract class ItemState extends Equatable {
 class ItemInitial extends ItemState {}
 
 class ItemTimeState extends ItemState {
-  final int hours;
-  final int days;
-  final int minutes;
-  final int seconds;
+  final String hours;
+  final String days;
+  final String minutes;
+  final String seconds;
   final EventModel model;
 
   ItemTimeState(

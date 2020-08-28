@@ -15,4 +15,6 @@ class EventerServices {
     return Stream.periodic(Duration(seconds: 1), (x) => ticks - x - 1)
         .take(ticks);
   }
+
+  String formatNum(num) => num.toString().padLeft(2, '0');
 }

@@ -27,10 +27,10 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
         _mapTimerStartedToState(durationInSeconds);
       } else {
         yield ItemTimeState(
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0,
+          days: '00',
+          hours: '00',
+          minutes: '00',
+          seconds: '00',
           model: model,
         );
       }
@@ -41,20 +41,13 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     DateTime date = model.date;
     DateTime now = DateTime.now();
 
-    if (date.second < 0) {
-      return ItemTimeState(
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        model: model,
-      );
-    }
     return ItemTimeState(
-        days: date.difference(now).inDays,
-        hours: date.difference(now).inHours % 24,
-        minutes: date.difference(now).inMinutes % 60,
-        seconds: date.difference(now).inSeconds % 60,
+        days: _eventerServices.formatNum(date.difference(now).inDays),
+        hours: _eventerServices.formatNum((date.difference(now).inHours % 24)),
+        minutes:
+            _eventerServices.formatNum((date.difference(now).inMinutes % 60)),
+        seconds:
+            _eventerServices.formatNum((date.difference(now).inSeconds % 60)),
         model: model);
   }
 
