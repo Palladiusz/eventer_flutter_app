@@ -9,21 +9,31 @@ part 'item_event.dart';
 part 'item_state.dart';
 
 class ItemBloc extends Bloc<ItemEvent, ItemState> {
+  ItemBloc(this.model) : super(ItemInitial());
   final EventModel model;
   var _eventerServices = EventerServices();
   StreamSubscription<int> _tickerSubscription;
-  int duration = 60;
-
-  ItemBloc(this.model) : super(ItemInitial());
 
   @override
   Stream<ItemState> mapEventToState(
     ItemEvent event,
   ) async* {
+    int durationInSeconds = model.date.difference(DateTime.now()).inSeconds;
+
     if (event is ItemTicked) {
       yield await _mapItemsDatetoTimeStates();
     } else if (event is ItemTimerStartEvent) {
-      _mapTimerStartedToState(duration);
+      if (durationInSeconds > 0) {
+        _mapTimerStartedToState(durationInSeconds);
+      } else {
+        yield ItemTimeState(
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+          model: model,
+        );
+      }
     }
   }
 
@@ -31,6 +41,15 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     DateTime date = model.date;
     DateTime now = DateTime.now();
 
+    if (date.second < 0) {
+      return ItemTimeState(
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+        model: model,
+      );
+    }
     return ItemTimeState(
         days: date.difference(now).inDays,
         hours: date.difference(now).inHours % 24,

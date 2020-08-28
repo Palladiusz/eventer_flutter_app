@@ -69,10 +69,8 @@ class EventCard extends StatelessWidget {
                 BlocBuilder<ItemBloc, ItemState>(
                   builder: (context, state) {
                     if (state is ItemTimeState) {
-                      print(state.days);
                       return Text(
                         '${state.days}, ${state.minutes} ${state.seconds}',
-                        //'${date.difference(DateTime.now()).inDays}d ${date.difference(DateTime.now()).inHours % 24}h ${date.difference(DateTime.now()).inMinutes % 60}m ${date.difference(DateTime.now()).inSeconds % 60}s',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
@@ -111,7 +109,9 @@ class EventCard extends StatelessWidget {
               ],
             );
           } else {
-            return Container();
+            return Container(
+              child: Text('problem'),
+            );
           }
         },
       ),
