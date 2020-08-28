@@ -1,8 +1,5 @@
-import 'dart:async';
-
 import 'package:eventer/blocs/item_bloc/item_bloc.dart';
 import 'package:eventer/constants.dart';
-import 'package:eventer/services/eventer_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,8 +8,6 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _eventerServices = EventerServices();
-
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(

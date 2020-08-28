@@ -9,42 +9,40 @@ part 'item_event.dart';
 part 'item_state.dart';
 
 class ItemBloc extends Bloc<ItemEvent, ItemState> {
-  ItemBloc({this.model}) : super(ItemInitial());
-
   final EventModel model;
   var _eventerServices = EventerServices();
   StreamSubscription<int> _tickerSubscription;
   int duration = 60;
+
+  ItemBloc(this.model) : super(ItemInitial());
 
   @override
   Stream<ItemState> mapEventToState(
     ItemEvent event,
   ) async* {
     if (event is ItemTicked) {
-      yield await _mapItemsDatetoTimeStates(model.date);
+      yield await _mapItemsDatetoTimeStates();
     } else if (event is ItemTimerStartEvent) {
       _mapTimerStartedToState(duration);
     }
   }
 
-  Future<ItemTimeState> _mapItemsDatetoTimeStates(DateTime date) async {
-    DateTime date;
+  Future<ItemTimeState> _mapItemsDatetoTimeStates() async {
+    DateTime date = model.date;
     DateTime now = DateTime.now();
 
     return ItemTimeState(
-      days: date.difference(now).inDays,
-      hours: date.difference(now).inHours % 24,
-      minutes: date.difference(now).inMinutes % 60,
-      seconds: date.difference(now).inSeconds % 60,
-    );
+        days: date.difference(now).inDays,
+        hours: date.difference(now).inHours % 24,
+        minutes: date.difference(now).inMinutes % 60,
+        seconds: date.difference(now).inSeconds % 60,
+        model: model);
   }
 
-  Stream<LoadItemsEvent> _mapTimerStartedToState(int start) async* {
+  void _mapTimerStartedToState(int start) {
     _tickerSubscription?.cancel();
-    _tickerSubscription = _eventerServices.tick(ticks: start).listen(
-          (duration) => add(
-            ItemTicked(duration: duration),
-          ),
-        );
+    _tickerSubscription = _eventerServices.tick(ticks: start).listen((event) {
+      add(ItemTicked(duration: event));
+    });
   }
 }
