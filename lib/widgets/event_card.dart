@@ -33,8 +33,7 @@ class EventCard extends StatelessWidget {
       width: 350,
       child: BlocBuilder<ItemBloc, ItemState>(
         builder: (context, state) {
-          if (state is ItemLoadedState) {
-            print(_eventerServices.tick(ticks: 5));
+          if (state is ItemTimeState) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -42,7 +41,7 @@ class EventCard extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  state.title,
+                  state.model.title,
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
@@ -52,7 +51,7 @@ class EventCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  state.desc,
+                  state.model.desc,
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 6,
@@ -77,7 +76,7 @@ class EventCard extends StatelessWidget {
                     if (state is ItemTimeState) {
                       print(state.days);
                       return Text(
-                        '${state.days}, ${state.minutes}',
+                        '${state.days}, ${state.minutes} ${state.seconds}',
                         //'${date.difference(DateTime.now()).inDays}d ${date.difference(DateTime.now()).inHours % 24}h ${date.difference(DateTime.now()).inMinutes % 60}m ${date.difference(DateTime.now()).inSeconds % 60}s',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,

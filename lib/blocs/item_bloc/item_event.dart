@@ -12,3 +12,11 @@ class LoadItemsEvent extends ItemEvent {
 
   LoadItemsEvent(this.model);
 }
+
+class ItemTicked extends ItemEvent {
+  final int duration;
+
+  ItemTicked({this.duration});
+}
+
+class ItemTimerStartEvent extends ItemEvent {}
