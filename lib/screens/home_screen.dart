@@ -23,7 +23,6 @@ class HomeScreen extends StatelessWidget {
             builder: (context, state) {
               if (state is ListLoaded) {
                 return ListView(
-                  scrollDirection: Axis.horizontal,
                   children: state.eventsList.map(
                     (model) {
                       return BlocProvider<ItemBloc>(

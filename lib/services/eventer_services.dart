@@ -8,6 +8,8 @@ class EventerServices {
     Response response = await dio.get('http://10.0.2.2:3000/events');
     final data =
         (response.data as List).map((e) => EventModel.fromJson(e)).toList();
+
+    data.sort((a, b) => a.date.compareTo(b.date));
     return data;
   }
 
