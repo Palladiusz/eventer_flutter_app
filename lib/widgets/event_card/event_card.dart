@@ -88,7 +88,15 @@ class EventCard extends StatelessWidget {
                       children: [
                         ExpandableButton(child: Icon(Icons.keyboard_arrow_up)),
                         CheckBoxWidget(checkedOut: state.model.checkedOut),
-                        IconButton(icon: Icon(Icons.edit), onPressed: () {})
+                        Row(
+                          children: [
+                            IconButton(
+                                icon: Icon(Icons.edit), onPressed: () {}),
+                            IconButton(
+                                icon: Icon(Icons.delete_forever),
+                                onPressed: () {}),
+                          ],
+                        )
                       ],
                     ),
                   ],
