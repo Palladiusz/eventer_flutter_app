@@ -32,7 +32,7 @@ class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
     } else if (event is FormItemAddEvent) {
       _eventerServices.postEvent(
         title: model.title,
-        desc: model.desc,
+        desc: model.desc ?? '',
         dateString: model.date.toIso8601String(),
       );
     }
