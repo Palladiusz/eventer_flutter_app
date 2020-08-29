@@ -9,7 +9,6 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         color: kDarkBlue,
         gradient: LinearGradient(
@@ -24,53 +23,51 @@ class EventCard extends StatelessWidget {
           ),
         ],
       ),
-      margin: EdgeInsets.only(top: 15, bottom: 15, left: 5, right: 20),
+      margin: EdgeInsets.only(top: 5),
       width: 350,
       child: BlocBuilder<ItemBloc, ItemState>(
         builder: (context, state) {
           if (state is ItemTimeState) {
-            return Column(
+            return Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                  state.model.title,
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 21,
-                  ),
-                ),
-                Text(
-                  state.model.desc,
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 6,
-                  style: TextStyle(
-                    fontSize: 17,
+                Container(
+                  width: 70,
+                  child: Column(
+                    children: [
+                      Text(
+                        state.model.title,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                      // Text(
+                      //   state.model.desc,
+                      //   textAlign: TextAlign.center,
+                      //   overflow: TextOverflow.ellipsis,
+                      //   maxLines: 6,
+                      //   style: TextStyle(
+                      //     fontSize: 8,
+                      //   ),
+                      // ),
+                    ],
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                  'Time to start event:',
-                  style: TextStyle(
-                    fontSize: 14,
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
                 BlocBuilder<ItemBloc, ItemState>(
                   builder: (context, state) {
                     if (state is ItemTimeState) {
                       return Text(
-                        '${state.days}, ${state.minutes} ${state.seconds}',
+                        '${state.days}:${state.hours}:${state.minutes}:${state.seconds}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
@@ -85,8 +82,8 @@ class EventCard extends StatelessWidget {
                   height: 60,
                 ),
                 Container(
-                  width: 60,
-                  height: 60,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     color: kLightBlue,
                     shape: BoxShape.circle,
