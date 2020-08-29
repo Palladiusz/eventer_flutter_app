@@ -9,6 +9,12 @@ abstract class FormItemState extends Equatable {
 
 class FormItemInitial extends FormItemState {}
 
-class FormItemEditing extends FormItemState {}
+class FormItemEditingState extends FormItemState {
+  final String title;
+  final String desc;
+  final DateTime date;
+
+  FormItemEditingState({this.title, this.desc, this.date});
+}
 
 class FormItemDone extends FormItemState {}

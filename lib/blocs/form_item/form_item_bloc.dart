@@ -13,6 +13,12 @@ class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
   Stream<FormItemState> mapEventToState(
     FormItemEvent event,
   ) async* {
-    // TODO: implement mapEventToState
+    if (event is FormItemUpdateTitleEvent) {
+      yield FormItemEditingState(title: event.title);
+    } else if (event is FormItemUpdateDescEvent) {
+      yield FormItemEditingState(desc: event.desc);
+    } else if (event is FormItemUpdateDateEvent) {
+      yield FormItemEditingState(date: event.date);
+    }
   }
 }
