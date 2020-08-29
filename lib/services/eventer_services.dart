@@ -31,6 +31,26 @@ class EventerServices {
     print('posted');
   }
 
+  void deleteEvent() async {
+    try {
+      await dio.delete(
+        'http://10.0.2.2:3000/events',
+        data: {
+          "id": 8,
+          "name":
+              "tttttttttSkonczony testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
+          "description":
+              "Description, description, description, description, description, description, description, description",
+          "date": "2020-08-31T00:00:00Z",
+          "checkedOut": true
+        },
+      );
+      print('deleted');
+    } on DioError catch (e) {
+      print(e.error);
+    }
+  }
+
   Stream<int> tick({int ticks}) {
     return Stream.periodic(Duration(seconds: 1), (x) => ticks - x - 1)
         .take(ticks);

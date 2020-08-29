@@ -37,7 +37,7 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     }
     if (event is ItemCheckEvent) {
       model.checkedOut ? model.checkedOut = false : model.checkedOut = true;
-      _eventerServices.postEvent();
+      // _eventerServices.deleteEvent();
     }
   }
 
