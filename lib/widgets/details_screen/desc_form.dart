@@ -1,9 +1,13 @@
+import 'package:eventer/blocs/form_item/form_item_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DescForm extends StatelessWidget {
   const DescForm({
     Key key,
+    this.myController,
   }) : super(key: key);
+  final TextEditingController myController;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +23,7 @@ class DescForm extends StatelessWidget {
       child: TextField(
         maxLines: null,
         expands: true,
+        controller: myController,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'Tap to add description',
@@ -29,6 +34,8 @@ class DescForm extends StatelessWidget {
         ),
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 18),
+        onChanged: (value) => BlocProvider.of<FormItemBloc>(context)
+            .add(FormItemUpdateDescEvent(myController.text)),
       ),
     );
   }

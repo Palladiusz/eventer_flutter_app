@@ -1,9 +1,13 @@
+import 'package:eventer/blocs/form_item/form_item_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TitleForm extends StatelessWidget {
   const TitleForm({
     Key key,
+    this.myController,
   }) : super(key: key);
+  final TextEditingController myController;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +20,7 @@ class TitleForm extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
+        controller: myController,
         decoration: InputDecoration(
           hintText: 'Tap to add tittle',
           hintStyle: TextStyle(
@@ -26,6 +31,8 @@ class TitleForm extends StatelessWidget {
         ),
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 28),
+        onChanged: (value) => BlocProvider.of<FormItemBloc>(context)
+            .add(FormItemUpdateTitleEvent(myController.text)),
       ),
     );
   }

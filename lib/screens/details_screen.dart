@@ -1,3 +1,4 @@
+import 'package:eventer/blocs/form_item/form_item_bloc.dart';
 import 'package:eventer/constants.dart';
 import 'package:eventer/services/eventer_services.dart';
 import 'package:eventer/widgets/details_screen/date.form.dart';
@@ -7,10 +8,12 @@ import 'package:eventer/widgets/details_screen/title_form.dart';
 import 'package:eventer/widgets/my_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailsScreen extends StatelessWidget {
   static const String id = '/details_screen';
-  final _eventerServices = EventerServices();
+  final descController = TextEditingController();
+  final titleController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,25 +25,29 @@ class DetailsScreen extends StatelessWidget {
         backgroundColor: kDarkBlue,
         body: SingleChildScrollView(
           child: Center(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                TitleForm(),
-                SizedBox(
-                  height: 40,
-                ),
-                DescForm(),
-                SizedBox(
-                  height: 70,
-                ),
-                DateForm(),
-                SizedBox(
-                  height: 60,
-                ),
-                SubmitFormButton(),
-              ],
+            child: BlocBuilder<FormItemBloc, FormItemState>(
+              builder: (context, state) {
+                return Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TitleForm(myController: titleController),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    DescForm(myController: descController),
+                    SizedBox(
+                      height: 70,
+                    ),
+                    DateForm(),
+                    SizedBox(
+                      height: 60,
+                    ),
+                    SubmitFormButton(),
+                  ],
+                );
+              },
             ),
           ),
         ),

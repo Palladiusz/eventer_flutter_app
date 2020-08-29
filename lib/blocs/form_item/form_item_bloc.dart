@@ -15,8 +15,10 @@ class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
   ) async* {
     if (event is FormItemUpdateTitleEvent) {
       yield FormItemEditingState(title: event.title);
+      print(event.title);
     } else if (event is FormItemUpdateDescEvent) {
       yield FormItemEditingState(desc: event.desc);
+      print(event.desc);
     } else if (event is FormItemUpdateDateEvent) {
       yield FormItemEditingState(date: event.date);
     }
