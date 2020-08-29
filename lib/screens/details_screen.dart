@@ -39,7 +39,7 @@ class DetailsScreen extends StatelessWidget {
                 SizedBox(
                   height: 60,
                 ),
-                SubmitFormButton(eventerServices: _eventerServices),
+                SubmitFormButton(),
               ],
             ),
           ),

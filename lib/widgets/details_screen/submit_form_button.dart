@@ -6,11 +6,7 @@ import '../../constants.dart';
 class SubmitFormButton extends StatelessWidget {
   const SubmitFormButton({
     Key key,
-    @required EventerServices eventerServices,
-  })  : _eventerServices = eventerServices,
-        super(key: key);
-
-  final EventerServices _eventerServices;
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +16,7 @@ class SubmitFormButton extends StatelessWidget {
         style: TextStyle(color: Colors.white),
       ),
       color: kVeryDarkBlue,
-      onPressed: () {
-        _eventerServices.fetchData();
-      },
+      onPressed: () {},
     );
   }
 }
