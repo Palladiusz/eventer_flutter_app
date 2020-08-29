@@ -8,7 +8,7 @@ part of 'event_model.dart';
 
 EventModel _$EventModelFromJson(Map<String, dynamic> json) {
   return EventModel(
-    id: json['id'] as int,
+    id: json['id'].toString(),
     title: json['name'] as String,
     desc: json['description'] as String,
     date: json['date'] == null ? null : DateTime.parse(json['date'] as String),
@@ -18,7 +18,7 @@ EventModel _$EventModelFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$EventModelToJson(EventModel instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'id': instance.id.toString(),
       'name': instance.title,
       'description': instance.desc,
       'date': instance.date?.toIso8601String(),
