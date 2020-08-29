@@ -1,5 +1,7 @@
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:eventer/blocs/form_item/form_item_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class DateForm extends StatelessWidget {
@@ -33,8 +35,16 @@ class DateForm extends StatelessWidget {
               initialTime:
                   TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
             );
+            BlocProvider.of<FormItemBloc>(context).add(
+              FormItemUpdateDateEvent(
+                DateTimeField.combine(date, time),
+              ),
+            );
             return DateTimeField.combine(date, time);
           } else {
+            BlocProvider.of<FormItemBloc>(context).add(
+              FormItemUpdateDateEvent(currentValue),
+            );
             return currentValue;
           }
         },

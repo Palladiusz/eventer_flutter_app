@@ -15,17 +15,15 @@ class EventerServices {
     return data;
   }
 
-  void postEvent() async {
+  void postEvent({String title, String desc, String dateString}) async {
     await dio.post(
       'http://10.0.2.2:3000/events',
       data: {
         "id": uuid.v4(),
-        "name":
-            "tttttttttSkonczony testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
-        "description":
-            "Description, description, description, description, description, description, description, description",
-        "date": "2020-08-31T00:00:00Z",
-        "checkedOut": true
+        "name": title,
+        "description": desc,
+        "date": dateString,
+        "checkedOut": false
       },
     );
     print('posted');

@@ -25,4 +25,10 @@ class FormItemUpdateDateEvent extends FormItemEvent {
   FormItemUpdateDateEvent(this.date);
 }
 
-class FormItemAddEvent extends FormItemEvent {}
+class FormItemAddEvent extends FormItemEvent {
+//   final String title;
+//   final String desc;
+//   final DateTime date;
+
+//   FormItemAddEvent({this.title, this.desc, this.date});
+}

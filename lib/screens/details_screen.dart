@@ -25,29 +25,25 @@ class DetailsScreen extends StatelessWidget {
         backgroundColor: kDarkBlue,
         body: SingleChildScrollView(
           child: Center(
-            child: BlocBuilder<FormItemBloc, FormItemState>(
-              builder: (context, state) {
-                return Column(
-                  children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TitleForm(myController: titleController),
-                    SizedBox(
-                      height: 40,
-                    ),
-                    DescForm(myController: descController),
-                    SizedBox(
-                      height: 70,
-                    ),
-                    DateForm(),
-                    SizedBox(
-                      height: 60,
-                    ),
-                    SubmitFormButton(),
-                  ],
-                );
-              },
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                TitleForm(myController: titleController),
+                SizedBox(
+                  height: 40,
+                ),
+                DescForm(myController: descController),
+                SizedBox(
+                  height: 70,
+                ),
+                DateForm(),
+                SizedBox(
+                  height: 60,
+                ),
+                SubmitFormButton(),
+              ],
             ),
           ),
         ),

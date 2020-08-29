@@ -2,6 +2,7 @@ import 'package:eventer/blocs/form_item/form_item_bloc.dart';
 import 'package:eventer/blocs/item_bloc/item_bloc.dart';
 import 'package:eventer/blocs/list_bloc/list_bloc.dart';
 import 'package:eventer/constants.dart';
+import 'package:eventer/models/event_model.dart';
 import 'package:eventer/screens/details_screen.dart';
 import 'package:eventer/widgets/event_card/event_card.dart';
 import 'package:eventer/widgets/my_appbar.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
+  final EventModel model = EventModel();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -49,7 +51,7 @@ class HomeScreen extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => BlocProvider<FormItemBloc>(
-                  create: (BuildContext context) => FormItemBloc(),
+                  create: (BuildContext context) => FormItemBloc(model),
                   child: DetailsScreen(),
                 ),
               ),
