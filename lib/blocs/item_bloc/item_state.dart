@@ -16,9 +16,19 @@ class ItemTimeState extends ItemState {
   final String seconds;
   final EventModel model;
 
-  ItemTimeState(
-      {this.hours, this.days, this.minutes, this.seconds, this.model});
+  ItemTimeState({
+    this.hours,
+    this.days,
+    this.minutes,
+    this.seconds,
+    this.model,
+  });
 
   @override
-  List<Object> get props => [hours, days, minutes, seconds];
+  List<Object> get props => [
+        hours,
+        days,
+        minutes,
+        seconds,
+      ];
 }

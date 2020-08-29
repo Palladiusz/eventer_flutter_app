@@ -45,13 +45,14 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     DateTime now = DateTime.now();
 
     return ItemTimeState(
-        days: _eventerServices.formatNum(date.difference(now).inDays),
-        hours: _eventerServices.formatNum((date.difference(now).inHours % 24)),
-        minutes:
-            _eventerServices.formatNum((date.difference(now).inMinutes % 60)),
-        seconds:
-            _eventerServices.formatNum((date.difference(now).inSeconds % 60)),
-        model: model);
+      days: _eventerServices.formatNum(date.difference(now).inDays),
+      hours: _eventerServices.formatNum((date.difference(now).inHours % 24)),
+      minutes:
+          _eventerServices.formatNum((date.difference(now).inMinutes % 60)),
+      seconds:
+          _eventerServices.formatNum((date.difference(now).inSeconds % 60)),
+      model: model,
+    );
   }
 
   void _mapTimerStartedToState(int start) {

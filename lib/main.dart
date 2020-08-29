@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context)
             .textTheme
             .apply(bodyColor: Colors.white, displayColor: Colors.white),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       initialRoute: HomeScreenProvider.id,
       routes: {
