@@ -1,6 +1,7 @@
 import 'package:eventer/blocs/form_item/form_item_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../screens/home_screen_provider.dart';
 
 import '../../constants.dart';
 
@@ -27,6 +28,12 @@ class SubmitFormButton extends StatelessWidget {
                     BlocProvider.of<FormItemBloc>(context).add(
                       FormItemAddEvent(),
                     );
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                HomeScreenProvider()));
                   }
                 : null,
           );
