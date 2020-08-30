@@ -51,7 +51,8 @@ class HomeScreen extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => BlocProvider<FormItemBloc>(
-                  create: (BuildContext context) => FormItemBloc(model),
+                  create: (BuildContext context) =>
+                      FormItemBloc(model)..add(FormItemStartEvent()),
                   child: DetailsScreen(),
                 ),
               ),

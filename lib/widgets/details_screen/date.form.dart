@@ -21,6 +21,15 @@ class DateForm extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: DateTimeField(
+        autovalidate: true,
+        validator: (date) {
+          if (date == null) {
+            BlocProvider.of<FormItemBloc>(context).add(
+              FormItemUpdateDateEvent(date),
+            );
+          }
+          return;
+        },
         format: DateFormat("yyyy-MM-dd    HH:mm"),
         onShowPicker: (context, currentValue) async {
           final date = await showDatePicker(

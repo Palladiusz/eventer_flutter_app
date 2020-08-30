@@ -28,34 +28,7 @@
       "date": "2020-07-15T00:00:00Z",
       "checkedOut": true
     },
-    {
-      "id": 7,
-      "name": "tttttttttSkonczony testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
-      "description": "Description, description, description, description, description, description, description, description",
-      "date": "2020-08-31T00:00:00Z",
-      "checkedOut": true
-    },
-    {
-      "id": 9,
-      "name": "tttttttttSkonczony testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
-      "description": "Description, description, description, description, description, description, description, description",
-      "date": "2020-08-31T00:00:00Z",
-      "checkedOut": true
-    },
-    {
-      "id": 8,
-      "name": "tttttttttSkonczony testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
-      "description": "Description, description, description, description, description, description, description, description",
-      "date": "2020-08-31T00:00:00Z",
-      "checkedOut": true
-    },
-    {
-      "id": "6c516d18-1a94-456d-aadb-7ff6327ed8bc",
-      "name": "tttttttttSkonczony testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
-      "description": "Description, description, description, description, description, description, description, description",
-      "date": "2020-08-31T00:00:00Z",
-      "checkedOut": true
-    },
+
     {
       "id": "d8e621e2-e712-430d-bfe1-ac96a42212c7",
       "name": "tete",

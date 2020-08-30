@@ -18,16 +18,17 @@ class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
     FormItemEvent event,
   ) async* {
     if (event is FormItemUpdateTitleEvent) {
-      yield FormItemEditingState(title: event.title);
+      yield FormItemEditingTitleState(event.title);
       print(event.title);
       model.title = event.title;
+      print(model.date);
     } else if (event is FormItemUpdateDescEvent) {
-      yield FormItemEditingState(desc: event.desc);
+      yield FormItemEditingDescState(event.desc);
       print(event.desc);
       model.desc = event.desc;
     } else if (event is FormItemUpdateDateEvent) {
-      yield FormItemEditingState(date: event.date);
-      print(event.date.toIso8601String());
+      yield FormItemEditingDateState(event.date);
+
       model.date = event.date;
     } else if (event is FormItemAddEvent) {
       _eventerServices.postEvent(
@@ -36,5 +37,11 @@ class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
         dateString: model.date.toIso8601String(),
       );
     }
+    yield FormItemEditingValidate(_validation());
   }
+
+  bool _validation() =>
+      model.title.runtimeType == String &&
+      model.title != '' &&
+      model.date.runtimeType == DateTime;
 }

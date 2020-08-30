@@ -7,6 +7,8 @@ abstract class FormItemEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class FormItemStartEvent extends FormItemEvent {}
+
 class FormItemUpdateTitleEvent extends FormItemEvent {
   final String title;
 
@@ -25,10 +27,6 @@ class FormItemUpdateDateEvent extends FormItemEvent {
   FormItemUpdateDateEvent(this.date);
 }
 
-class FormItemAddEvent extends FormItemEvent {
-//   final String title;
-//   final String desc;
-//   final DateTime date;
+class FormItemAddEvent extends FormItemEvent {}
 
-//   FormItemAddEvent({this.title, this.desc, this.date});
-}
+class FormItemValidate extends FormItemEvent {}

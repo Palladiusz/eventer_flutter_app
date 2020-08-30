@@ -15,7 +15,13 @@ class EventModel {
   DateTime date;
   bool checkedOut;
 
-  EventModel({this.id, this.title, this.desc, this.date, this.checkedOut});
+  EventModel({
+    this.id,
+    this.title,
+    this.desc,
+    this.date,
+    this.checkedOut,
+  });
 
   factory EventModel.fromJson(Map<String, dynamic> json) =>
       _$EventModelFromJson(json);
