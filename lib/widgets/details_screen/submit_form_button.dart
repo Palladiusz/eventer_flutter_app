@@ -37,7 +37,7 @@ class SubmitFormButton extends StatelessWidget {
               style: TextStyle(color: Colors.redAccent),
             ),
             color: kVeryDarkBlue,
-            onPressed: () {},
+            onPressed: null,
           );
         }
       },
