@@ -91,10 +91,17 @@ class EventCard extends StatelessWidget {
                         Row(
                           children: [
                             IconButton(
-                                icon: Icon(Icons.edit), onPressed: () {}),
+                                icon: Icon(Icons.edit),
+                                onPressed: () {
+                                  BlocProvider.of<ItemBloc>(context)
+                                      .add(ItemEditEvent());
+                                }),
                             IconButton(
                                 icon: Icon(Icons.delete_forever),
-                                onPressed: () {}),
+                                onPressed: () {
+                                  BlocProvider.of<ItemBloc>(context)
+                                      .add(ItemDeleteEvent());
+                                }),
                           ],
                         )
                       ],
