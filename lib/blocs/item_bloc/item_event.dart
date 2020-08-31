@@ -7,19 +7,7 @@ abstract class ItemEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadItemsEvent extends ItemEvent {
-  final EventModel model;
-
-  LoadItemsEvent(this.model);
-}
-
-class ItemTicked extends ItemEvent {
-  final int duration;
-
-  ItemTicked({this.duration});
-}
-
-class ItemTimerStartEvent extends ItemEvent {}
+class LoadItemsEvent extends ItemEvent {}
 
 class ItemCheckEvent extends ItemEvent {}
 

@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                     (model) {
                       return BlocProvider<ItemBloc>(
                         create: (BuildContext context) =>
-                            ItemBloc(model)..add(ItemTimerStartEvent()),
+                            ItemBloc(model)..add(LoadItemsEvent()),
                         child: EventCard(),
                       );
                     },

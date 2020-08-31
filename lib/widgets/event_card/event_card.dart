@@ -1,4 +1,5 @@
 import 'package:eventer/blocs/item_bloc/item_bloc.dart';
+import 'package:eventer/blocs/timer_bloc/timer_bloc.dart';
 import 'package:eventer/constants.dart';
 import 'package:eventer/widgets/event_card/checkbox_widget.dart';
 import 'package:eventer/widgets/event_card/desc_event.dart';
@@ -33,7 +34,7 @@ class EventCard extends StatelessWidget {
       child: ExpandableNotifier(
         child: BlocBuilder<ItemBloc, ItemState>(
           builder: (context, state) {
-            if (state is ItemTimeState) {
+            if (state is ItemStateBase) {
               return Expandable(
                 collapsed: ExpandableButton(
                   child: Row(
@@ -47,7 +48,14 @@ class EventCard extends StatelessWidget {
                         child: Column(
                           children: [
                             TitleEvent(title: state.model.title),
-                            TimerBlocWidget(),
+                            BlocProvider<TimerBloc>(
+                              create: (BuildContext context) =>
+                                  TimerBloc(dateFromModel: state.model.date)
+                                    ..add(
+                                      ItemTimerStartEventt(),
+                                    ),
+                              child: TimerBlocWidget(),
+                            ),
                           ],
                         ),
                       ),
@@ -75,7 +83,14 @@ class EventCard extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    TimerBlocWidget(),
+                    BlocProvider<TimerBloc>(
+                      create: (BuildContext context) =>
+                          TimerBloc(dateFromModel: state.model.date)
+                            ..add(
+                              ItemTimerStartEventt(),
+                            ),
+                      child: TimerBlocWidget(),
+                    ),
                     SizedBox(
                       height: 10,
                     ),

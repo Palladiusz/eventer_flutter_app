@@ -31,22 +31,25 @@ class EventerServices {
 
   void deleteEvent() async {
     try {
-      await dio.delete(
-        'http://10.0.2.2:3000/events',
-        data: {
-          "id": 8,
-          "name":
-              "tttttttttSkonczony testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
-          "description":
-              "Description, description, description, description, description, description, description, description",
-          "date": "2020-08-31T00:00:00Z",
-          "checkedOut": true
-        },
+      await dio.request(
+        'http://10.0.2.2:3000/events/d8e621e2-e712-430d-gbfe1-ac96a42212c7',
+        options: Options(method: 'DELETE'),
       );
       print('deleted');
     } on DioError catch (e) {
       print(e.error);
     }
+  }
+
+  void formData() async {
+    FormData formData = new FormData.fromMap({
+      "id": "9a52939b-a730-42b6-a5ee-26c4da78cb3266",
+      "name": "gfd",
+      "description": "",
+      "date": "2020-08-30T11:06:00.000",
+      "checkedOut": false
+    });
+    await dio.post("http://10.0.2.2:3000/events", data: formData);
   }
 
   Stream<int> tick({int ticks}) {

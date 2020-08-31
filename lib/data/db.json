@@ -1,45 +1,31 @@
 {
   "events": [
     {
-      "id": 1,
+      "id": "d8e621e2-e712-430d-bfe1-ac96a47212c7",
       "name": "Koniec stazu w Euvic",
       "description": "Skonczyl mi sie czas w Euvic :(.",
       "date": "2020-08-31T00:00:00Z",
       "checkedOut": false
     },
     {
-      "id": 2,
+      "id": "d8e621es2-e712-430d-bfe1-ac96a42212c7",
       "name": "Skonczony testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
       "description": "Description, description, description, description, description, description, description, description",
       "date": "2020-08-31T00:00:00Z",
       "checkedOut": true
     },
     {
-      "id": 3,
+      "id": "d8e6261e2-e712-430d-bfe1-ac96a42212c7",
       "name": "Testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
       "description": "Description, description, description, description, description, description, description, description",
       "date": "2020-09-15T00:00:00Z",
       "checkedOut": false
     },
     {
-      "id": 4,
-      "name": "Jakis zakonczony event",
-      "description": "Description, description, description",
-      "date": "2020-07-15T00:00:00Z",
-      "checkedOut": true
-    },
-    {
       "id": "d8e621e2-e712-430d-bfe1-ac96a42212c7",
       "name": "tete",
       "description": "hgfj",
       "date": "2020-09-01T15:52:00.000",
-      "checkedOut": false
-    },
-    {
-      "id": "e511ed24-6742-4d03-954b-f991d648443d",
-      "name": "Jeste Bogie",
-      "description": "MUAHAHAHAHAHAHHAAHAHAHHAHAHAHA",
-      "date": "2020-08-30T11:57:00.000",
       "checkedOut": false
     },
     {
@@ -50,10 +36,10 @@
       "checkedOut": false
     },
     {
-      "id": "eae99cc7-9eed-4b17-baa3-7769963fdfc1",
-      "name": "Bukkake Senseeei",
-      "description": "Zrob mje apke, dej mje Nzotha i gwiazdke z nieba",
-      "date": "2020-08-31T20:00:00.000",
+      "id": "c7cea561-be3a-4496-9fc0-ae3ff572134c",
+      "name": "fgddf",
+      "description": "fds",
+      "date": "2020-08-31T15:15:00.000",
       "checkedOut": false
     }
   ]

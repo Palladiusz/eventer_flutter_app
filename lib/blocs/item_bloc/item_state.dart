@@ -9,26 +9,21 @@ abstract class ItemState extends Equatable {
 
 class ItemInitial extends ItemState {}
 
-class ItemTimeState extends ItemState {
-  final String hours;
-  final String days;
-  final String minutes;
-  final String seconds;
+class ItemStateBase extends ItemState {
   final EventModel model;
 
-  ItemTimeState({
-    this.hours,
-    this.days,
-    this.minutes,
-    this.seconds,
-    this.model,
-  });
+  ItemStateBase({this.model});
+
+  ItemStateBase copyWith({EventModel model}) {
+    return ItemStateBase(model: model ?? this.model);
+  }
 
   @override
-  List<Object> get props => [
-        hours,
-        days,
-        minutes,
-        seconds,
-      ];
+  List<Object> get props => [model];
+}
+
+class ItemCheckboxState extends ItemState {
+  final bool isChecked;
+
+  ItemCheckboxState({this.isChecked});
 }

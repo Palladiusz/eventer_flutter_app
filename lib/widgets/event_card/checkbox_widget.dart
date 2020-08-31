@@ -14,6 +14,7 @@ class CheckBoxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: UniqueKey(),
       width: 40,
       height: 40,
       decoration: BoxDecoration(
