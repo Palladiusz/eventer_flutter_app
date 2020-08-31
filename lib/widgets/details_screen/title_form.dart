@@ -21,7 +21,10 @@ class TitleForm extends StatelessWidget {
       ),
       child: TextField(
         controller: myController,
+        maxLength: 32,
+        maxLines: null,
         decoration: InputDecoration(
+          counterStyle: TextStyle(color: Colors.white),
           hintText: 'Tap to add tittle',
           hintStyle: TextStyle(
             fontSize: 28,

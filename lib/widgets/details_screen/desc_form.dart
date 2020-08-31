@@ -23,8 +23,10 @@ class DescForm extends StatelessWidget {
       child: TextField(
         maxLines: null,
         expands: true,
+        maxLength: 256,
         controller: myController,
         decoration: InputDecoration(
+          counterStyle: TextStyle(color: Colors.white),
           border: InputBorder.none,
           hintText: 'Tap to add description',
           hintStyle: TextStyle(
