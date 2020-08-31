@@ -8,38 +8,17 @@
       "checkedOut": false
     },
     {
-      "id": "d8e621es2-e712-430d-bfe1-ac96a42212c7",
-      "name": "Skonczony testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
-      "description": "Description, description, description, description, description, description, description, description",
-      "date": "2020-08-31T00:00:00Z",
-      "checkedOut": true
-    },
-    {
-      "id": "d8e6261e2-e712-430d-bfe1-ac96a42212c7",
+      "id": "d8e6261e2-e712-430d-ble1-ac96a42212c7",
       "name": "Testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
       "description": "Description, description, description, description, description, description, description, description",
       "date": "2020-09-15T00:00:00Z",
       "checkedOut": false
     },
     {
-      "id": "d8e621e2-e712-430d-bfe1-ac96a42212c7",
-      "name": "tete",
-      "description": "hgfj",
-      "date": "2020-09-01T15:52:00.000",
-      "checkedOut": false
-    },
-    {
-      "id": "9a52939b-a730-42b6-a5ee-26c4da78cb32",
-      "name": "gfd",
-      "description": "",
-      "date": "2020-08-30T11:06:00.000",
-      "checkedOut": false
-    },
-    {
-      "id": "c7cea561-be3a-4496-9fc0-ae3ff572134c",
-      "name": "fgddf",
-      "description": "fds",
-      "date": "2020-08-31T15:15:00.000",
+      "id": "d8e6261e2-e712-430d-bke1-ah96a42212c7",
+      "name": "55Testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
+      "description": "Description, description, description, description, description, description, description, description",
+      "date": "2020-09-15T00:00:00Z",
       "checkedOut": false
     }
   ]

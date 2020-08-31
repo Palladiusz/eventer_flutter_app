@@ -13,9 +13,9 @@ abstract class BaseBlocField<T, TSubject extends Subject<T>> {
   ///Place to provide additonal info of this bloc field.
   dynamic tag;
 
-  Function(dynamic) get onChanged => (event) {
-        safeAddToSink(_controller, event);
-      };
+  // Function(dynamic) get onChanged => (event) {
+  //       safeAddToSink(_controller, event);
+  //     };
 
   BaseBlocField(
       {@required TSubject controller,
@@ -29,7 +29,7 @@ abstract class BaseBlocField<T, TSubject extends Subject<T>> {
   }
 
   ///Ads event to controller sink
-  void emit(T event) => safeAddToSink(_controller, event);
+  // void emit(T event) => safeAddToSink(_controller, event);
 
   void close() => _controller?.close();
 }

@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:eventer/blocs/list_bloc/list_bloc.dart';
 import 'package:eventer/models/event_model.dart';
 import 'package:eventer/services/eventer_services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'item_event.dart';
 part 'item_state.dart';
@@ -30,7 +32,7 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     }
     if (event is ItemDeleteEvent) {
       //TODO
-      _eventerServices.deleteEvent();
+      _eventerServices.deleteEvent(id: event.id);
     }
     if (event is ItemEditEvent) {
       //TODO
