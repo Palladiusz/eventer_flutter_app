@@ -31,7 +31,7 @@ class EventCard extends StatelessWidget {
           ),
         ],
       ),
-      margin: EdgeInsets.only(top: 5),
+      margin: EdgeInsets.only(top: 5, bottom: 2),
       width: 350,
       child: ExpandableNotifier(
         child: BlocBuilder<ItemBloc, ItemState>(
@@ -112,12 +112,17 @@ class EventCard extends StatelessWidget {
                                 onPressed: () {
                                   BlocProvider.of<ItemBloc>(context)
                                       .add(ItemEditEvent());
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              HomeScreenProvider()));
                                 }),
                             IconButton(
                               icon: Icon(Icons.delete_forever),
                               onPressed: () {
                                 BlocProvider.of<ItemBloc>(context)
-                                    .add(ItemDeleteEvent(id: state.model.id));
+                                    .add(ItemDeleteEvent());
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(

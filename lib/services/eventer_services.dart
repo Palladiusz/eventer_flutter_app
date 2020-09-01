@@ -41,6 +41,24 @@ class EventerServices {
     }
   }
 
+  void editEvent({EventModel model}) async {
+    try {
+      await dio.request(
+        'http://10.0.2.2:3000/events/${model.id}',
+        data: {
+          "name": model.title,
+          "description": model.desc,
+          "date": model.date.toIso8601String(),
+          "checkedOut": model.checkedOut
+        },
+        options: Options(method: 'PUT'),
+      );
+      print('edited');
+    } on DioError catch (e) {
+      print(e.error);
+    }
+  }
+
   Stream<int> tick({int ticks}) {
     return Stream.periodic(Duration(seconds: 1), (x) => ticks - x - 1)
         .take(ticks);

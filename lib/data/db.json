@@ -1,25 +1,25 @@
 {
   "events": [
     {
-      "id": "d8e621e2-e712-430d-bfe1-ac96a47212c7",
       "name": "Koniec stazu w Euvic",
       "description": "Skonczyl mi sie czas w Euvic :(.",
-      "date": "2020-08-31T00:00:00Z",
-      "checkedOut": false
+      "date": "2020-08-31T00:00:00.000Z",
+      "checkedOut": false,
+      "id": "d8e621e2-e712-430d-bfe1-ac96a47212c7"
     },
     {
-      "id": "d8e6261e2-e712-430d-ble1-ac96a42212c7",
       "name": "Testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
       "description": "Description, description, description, description, description, description, description, description",
-      "date": "2020-09-15T00:00:00Z",
-      "checkedOut": false
+      "date": "2020-09-15T00:00:00.000Z",
+      "checkedOut": false,
+      "id": "d8e6261e2-e712-430d-ble1-ac96a42212c7"
     },
     {
-      "id": "d8e6261e2-e712-430d-bke1-ah96a42212c7",
-      "name": "55Testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
-      "description": "Description, description, description, description, description, description, description, description",
-      "date": "2020-09-15T00:00:00Z",
-      "checkedOut": false
+      "name": "3Testowy event z troche dluuuuuuuuuzsza nazwa niz normalny event",
+      "description": "mememmee",
+      "date": "2020-09-15T00:00:00.000Z",
+      "checkedOut": false,
+      "id": "d8e6265e2-e712-430d-ble1-ac96a42212c7"
     }
   ]
 }

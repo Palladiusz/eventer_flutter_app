@@ -26,20 +26,24 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
 
     if (event is ItemCheckEvent) {
       // TODO work checkbox on finished events
+      _switchCheckbox(model.checkedOut);
+      _eventerServices.editEvent(
+          model: model.copyWith(checkedOut: model.checkedOut));
       yield ItemStateBase()
-          .copyWith(model: model.copyWith(checkedOut: _switchCheckbox(false)));
+          .copyWith(model: model.copyWith(checkedOut: model.checkedOut));
       print(model.checkedOut);
     }
     if (event is ItemDeleteEvent) {
       //TODO
-      _eventerServices.deleteEvent(id: event.id);
+      _eventerServices.deleteEvent(id: model.id);
     }
     if (event is ItemEditEvent) {
       //TODO
+      _eventerServices.editEvent(model: model.copyWith(desc: 'mememmee'));
     }
   }
 
-  bool _switchCheckbox(bool check) {
-    return (check ? check = false : check = true);
+  void _switchCheckbox(bool check) {
+    check ? check = false : check = true;
   }
 }
