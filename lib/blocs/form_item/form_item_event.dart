@@ -9,24 +9,4 @@ abstract class FormItemEvent extends Equatable {
 
 class FormItemStartEvent extends FormItemEvent {}
 
-class FormItemUpdateTitleEvent extends FormItemEvent {
-  final String title;
-
-  FormItemUpdateTitleEvent(this.title);
-}
-
-class FormItemUpdateDescEvent extends FormItemEvent {
-  final String desc;
-
-  FormItemUpdateDescEvent(this.desc);
-}
-
-class FormItemUpdateDateEvent extends FormItemEvent {
-  final DateTime date;
-
-  FormItemUpdateDateEvent(this.date);
-}
-
 class FormItemAddEvent extends FormItemEvent {}
-
-class FormItemValidate extends FormItemEvent {}

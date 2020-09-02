@@ -1,5 +1,4 @@
 import 'package:eventer/blocs/item_bloc/item_bloc.dart';
-import 'package:eventer/blocs/list_bloc/list_bloc.dart';
 import 'package:eventer/blocs/timer_bloc/timer_bloc.dart';
 import 'package:eventer/constants.dart';
 import 'package:eventer/screens/home_screen_provider.dart';
@@ -18,6 +17,7 @@ class EventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: kDarkBlue,
         gradient: LinearGradient(
@@ -32,7 +32,6 @@ class EventCard extends StatelessWidget {
           ),
         ],
       ),
-      margin: EdgeInsets.only(top: 5, bottom: 2),
       width: 350,
       child: ExpandableNotifier(
         child: BlocBuilder<ItemBloc, ItemState>(

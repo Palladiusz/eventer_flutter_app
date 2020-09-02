@@ -6,8 +6,10 @@ class EventerServices {
   final dio = Dio();
   var uuid = Uuid();
 
+  final baseApi = "http://localhost:3000";
+
   Future<List<EventModel>> fetchData() async {
-    Response response = await dio.get('http://10.0.2.2:3000/events');
+    Response response = await dio.get('$baseApi/events');
     final data =
         (response.data as List).map((e) => EventModel.fromJson(e)).toList();
 
@@ -15,9 +17,9 @@ class EventerServices {
     return data;
   }
 
-  void postEvent({String title, String desc, String dateString}) async {
+  Future<void> postEvent({String title, String desc, String dateString}) async {
     await dio.post(
-      'http://10.0.2.2:3000/events',
+      '$baseApi/events',
       data: {
         "id": uuid.v4(),
         "name": title,
@@ -29,10 +31,10 @@ class EventerServices {
     print('posted');
   }
 
-  void deleteEvent({String id}) async {
+  Future<void> deleteEvent({String id}) async {
     try {
       await dio.request(
-        'http://10.0.2.2:3000/events/$id',
+        '$baseApi/events/$id',
         options: Options(method: 'DELETE'),
       );
       print('deleted');
@@ -41,10 +43,10 @@ class EventerServices {
     }
   }
 
-  void editEvent({EventModel model}) async {
+  Future<void> editEvent({EventModel model}) async {
     try {
       await dio.request(
-        'http://10.0.2.2:3000/events/${model.id}',
+        '$baseApi/events/${model.id}',
         data: {
           "name": model.title,
           "description": model.desc,

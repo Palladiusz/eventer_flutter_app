@@ -12,41 +12,31 @@ class SubmitFormButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FormItemBloc, FormItemState>(
-      builder: (context, state) {
-        if (state is FormItemEditingValidate) {
-          bool isValidate = state.isValidate;
-          return RaisedButton(
-            child: Text(
-              'Submit event',
-              style: TextStyle(
-                  color: isValidate ? Colors.white : Colors.redAccent),
-            ),
-            color: kVeryDarkBlue,
-            onPressed: isValidate
-                ? () {
-                    BlocProvider.of<FormItemBloc>(context).add(
-                      FormItemAddEvent(),
-                    );
+    return StreamBuilder<bool>(
+      initialData: false,
+      stream: BlocProvider.of<FormItemBloc>(context).isValid,
+      builder: (context, snapshot) {
+        final isValid = snapshot.hasData && snapshot.data;
+        return RaisedButton(
+          child: Text(
+            'Submit event',
+            style: TextStyle(color: isValid ? Colors.white : Colors.redAccent),
+          ),
+          color: kVeryDarkBlue,
+          onPressed: isValid
+              ? () {
+                  BlocProvider.of<FormItemBloc>(context).add(
+                    FormItemAddEvent(),
+                  );
 
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                HomeScreenProvider()));
-                  }
-                : null,
-          );
-        } else {
-          return RaisedButton(
-            child: Text(
-              'Submit event',
-              style: TextStyle(color: Colors.redAccent),
-            ),
-            color: kVeryDarkBlue,
-            onPressed: null,
-          );
-        }
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              HomeScreenProvider()));
+                }
+              : null,
+        );
       },
     );
   }

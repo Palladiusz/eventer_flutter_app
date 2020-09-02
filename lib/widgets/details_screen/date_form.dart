@@ -23,16 +23,7 @@ class DateForm extends StatelessWidget {
       ),
       child: DateTimeField(
         initialValue: initDate,
-        autovalidate: true,
-        validator: (date) {
-          if (date == null) {
-            BlocProvider.of<FormItemBloc>(context).add(
-              FormItemUpdateDateEvent(date),
-            );
-          }
-          return;
-        },
-        format: DateFormat("yyyy-MM-dd    HH:mm"),
+        format: DateFormat("yyyy-MM-dd HH:mm"),
         onShowPicker: (context, currentValue) async {
           final date = await showDatePicker(
             context: context,
@@ -46,16 +37,15 @@ class DateForm extends StatelessWidget {
               initialTime:
                   TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
             );
-            BlocProvider.of<FormItemBloc>(context).add(
-              FormItemUpdateDateEvent(
-                DateTimeField.combine(date, time),
-              ),
-            );
+            BlocProvider.of<FormItemBloc>(context)
+                .dateField
+                .onChanged(DateTimeField.combine(date, time));
+
             return DateTimeField.combine(date, time);
           } else {
-            BlocProvider.of<FormItemBloc>(context).add(
-              FormItemUpdateDateEvent(currentValue),
-            );
+            BlocProvider.of<FormItemBloc>(context)
+                .dateField
+                .onChanged(currentValue);
             return currentValue;
           }
         },

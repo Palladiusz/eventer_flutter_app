@@ -1,5 +1,5 @@
 import 'package:eventer/constants.dart';
-import 'package:eventer/widgets/details_screen/date.form.dart';
+import 'package:eventer/widgets/details_screen/date_form.dart';
 import 'package:eventer/widgets/details_screen/desc_form.dart';
 import 'package:eventer/widgets/details_screen/submit_form_button.dart';
 import 'package:eventer/widgets/details_screen/title_form.dart';
@@ -9,9 +9,6 @@ import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatelessWidget {
   static const String id = '/details_screen';
-
-  final descController = TextEditingController();
-  final titleController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +25,11 @@ class DetailsScreen extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                TitleForm(myController: titleController),
+                TitleForm(),
                 SizedBox(
                   height: 40,
                 ),
-                DescForm(myController: descController),
+                DescForm(),
                 SizedBox(
                   height: 70,
                 ),

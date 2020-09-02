@@ -1,9 +1,8 @@
-import 'package:eventer/blocs/form_item/form_item_bloc.dart';
 import 'package:eventer/blocs/item_bloc/item_bloc.dart';
 import 'package:eventer/blocs/list_bloc/list_bloc.dart';
 import 'package:eventer/constants.dart';
 import 'package:eventer/models/event_model.dart';
-import 'package:eventer/screens/details_screen.dart';
+import 'package:eventer/screens/details_page.dart';
 import 'package:eventer/widgets/event_card/event_card.dart';
 import 'package:eventer/widgets/my_appbar.dart';
 import 'package:flutter/material.dart';
@@ -49,13 +48,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => BlocProvider<FormItemBloc>(
-                  create: (BuildContext context) =>
-                      FormItemBloc(model)..add(FormItemStartEvent()),
-                  child: DetailsScreen(),
-                ),
-              ),
+              MaterialPageRoute(builder: (context) => DetailsPage()),
             );
           },
         ),

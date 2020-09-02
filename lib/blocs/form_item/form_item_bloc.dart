@@ -5,49 +5,55 @@ import 'package:equatable/equatable.dart';
 import 'package:eventer/blocs/bloc_field.dart';
 import 'package:eventer/models/event_model.dart';
 import 'package:eventer/services/eventer_services.dart';
+import 'package:rxdart/rxdart.dart';
 
 part 'form_item_event.dart';
 part 'form_item_state.dart';
 
 class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
-  FormItemBloc(this.model) : super(FormItemInitial());
+  FormItemBloc(this.model) : super(FormItemInitial()) {
+    titleField = BehaviorBlocField<String>();
+    if (model?.title?.isNotEmpty ?? false) {
+      titleField.emit(model.title);
+    }
+
+    if (model?.desc?.isNotEmpty ?? false) {
+      descField.emit(model.desc);
+    }
+
+    if (model?.date != null) {
+      dateField.emit(model.date);
+    }
+  }
   var _eventerServices = EventerServices();
-  final titleField = BehaviorBlocField<String>(streamModifing: (s) => s);
+
+  BehaviorBlocField<String> titleField;
+  final descField = BehaviorBlocField<String>();
+  final dateField = BehaviorBlocField<DateTime>();
+
+  Stream<bool> get isValid =>
+      Rx.combineLatest3(titleField.stream, descField.stream, dateField.stream,
+          (String title, String desc, DateTime date) {
+        return title?.isNotEmpty == true &&
+            desc?.isNotEmpty == true &&
+            date != null;
+      });
+
   final EventModel model;
 
   @override
   Stream<FormItemState> mapEventToState(
     FormItemEvent event,
   ) async* {
-    if (event is FormItemUpdateTitleEvent) {
-      yield FormItemEditingTitleState(event.title);
-      print(event.title);
-      model.copyWith(title: event.title);
-      _getTitle(model.title, event.title);
-      model.title = event.title;
-      print(model.title);
-    } else if (event is FormItemUpdateDescEvent) {
-      yield FormItemEditingDescState(event.desc);
-      print(event.desc);
-      model.desc = event.desc;
-      model.copyWith(title: event.desc);
-    } else if (event is FormItemUpdateDateEvent) {
-      yield FormItemEditingDateState(event.date);
-      model.copyWith(date: event.date);
-      model.date = event.date;
-    } else if (event is FormItemAddEvent) {
+    if (event is FormItemAddEvent) {
       _eventerServices.postEvent(
-        title: model.title,
-        desc: model.desc ?? '',
-        dateString: model.date.toIso8601String(),
+        title: titleField.value,
+        desc: descField.value ?? '',
+        dateString: dateField.value.toIso8601String(),
       );
+      yield FormItemDone();
+    } else {
+      yield FormItemInitial();
     }
-    yield FormItemEditingValidate(_validation());
   }
-
-  bool _validation() =>
-      model.title.runtimeType == String &&
-      model.title != '' &&
-      model.date.runtimeType == DateTime;
-  String _getTitle(title, value) => title = value;
 }
