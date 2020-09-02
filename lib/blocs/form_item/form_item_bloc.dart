@@ -11,9 +11,15 @@ part 'form_item_event.dart';
 part 'form_item_state.dart';
 
 class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
-  FormItemBloc() : super(FormItemInitial());
+  FormItemBloc({this.model}) : super(FormItemInitial()) {
+    if (model != null) {
+      titleField.onChanged(model.title);
+      descField.onChanged(model.desc);
+      dateField.onChanged(model.date);
+    }
+  }
+  final EventModel model;
   var _eventerServices = EventerServices();
-
   final titleField = BehaviorBlocField<String>();
   final descField = BehaviorBlocField<String>();
   final dateField = BehaviorBlocField<DateTime>();
@@ -31,11 +37,20 @@ class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
     FormItemEvent event,
   ) async* {
     if (event is FormItemAddEvent) {
-      _eventerServices.postEvent(
-        title: titleField.value,
-        desc: descField.value ?? '',
-        dateString: dateField.value.toIso8601String(),
-      );
+      if (model == null) {
+        _eventerServices.postEvent(
+          title: titleField.value,
+          desc: descField.value ?? '',
+          dateString: dateField.value.toIso8601String(),
+        );
+      } else {
+        _eventerServices.editEvent(
+          id: model.id,
+          title: titleField.value,
+          desc: descField.value ?? '',
+          dateString: dateField.value.toIso8601String(),
+        );
+      }
       yield FormItemDone();
     } else {
       yield FormItemInitial();

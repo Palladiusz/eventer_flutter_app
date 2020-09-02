@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TitleForm extends StatelessWidget {
+  final String initialValue;
   final myController = TextEditingController();
+
+  TitleForm({Key key, this.initialValue}) : super(key: key) {
+    myController.text = initialValue;
+  }
 
   @override
   Widget build(BuildContext context) {

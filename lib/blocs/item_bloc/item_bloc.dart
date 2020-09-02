@@ -25,7 +25,13 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
 
     if (event is ItemCheckEvent && state is ItemStateBase) {
       final newModel = model.copyWith(checkedOut: !model.checkedOut);
-      _eventerServices.editEvent(model: newModel);
+      _eventerServices.editEvent(
+        isChecked: newModel.checkedOut,
+        dateString: model.date.toIso8601String(),
+        desc: model.desc,
+        id: model.id,
+        title: model.title,
+      );
       model = newModel;
       yield (state as ItemStateBase).copyWith(model: newModel);
     }
@@ -34,10 +40,6 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     }
     if (event is ItemEditEvent) {
       yield ItemEditState(model.title, model.desc, model.date);
-    }
-    if (event is ItemSubmitEditEvent) {
-      _eventerServices.editEvent(
-          model: model.copyWith(desc: event.desc, title: event.title));
     }
   }
 }

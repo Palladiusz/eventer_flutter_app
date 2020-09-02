@@ -1,3 +1,4 @@
+import 'package:eventer/blocs/form_item/form_item_bloc.dart';
 import 'package:eventer/constants.dart';
 import 'package:eventer/models/event_model.dart';
 import 'package:eventer/widgets/details_screen/date_form.dart';
@@ -7,13 +8,12 @@ import 'package:eventer/widgets/details_screen/title_form.dart';
 import 'package:eventer/widgets/my_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailsScreen extends StatelessWidget {
-  final EventModel model;
-
   static const String id = '/details_screen';
 
-  const DetailsScreen({Key key, this.model}) : super(key: key);
+  const DetailsScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +30,24 @@ class DetailsScreen extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                TitleForm(),
+                TitleForm(
+                  initialValue:
+                      BlocProvider.of<FormItemBloc>(context).titleField.value,
+                ),
                 SizedBox(
                   height: 40,
                 ),
-                DescForm(initialValue: model?.desc),
+                DescForm(
+                  initialValue:
+                      BlocProvider.of<FormItemBloc>(context).descField.value,
+                ),
                 SizedBox(
                   height: 70,
                 ),
-                DateForm(),
+                DateForm(
+                  initDate:
+                      BlocProvider.of<FormItemBloc>(context).dateField.value,
+                ),
                 SizedBox(
                   height: 60,
                 ),

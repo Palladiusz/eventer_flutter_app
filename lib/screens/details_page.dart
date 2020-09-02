@@ -12,8 +12,8 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<FormItemBloc>(
-      create: (ctx) => FormItemBloc()..add(FormItemStartEvent()),
-      child: DetailsScreen(model: model),
+      create: (ctx) => FormItemBloc(model: model)..add(FormItemStartEvent()),
+      child: DetailsScreen(),
     );
   }
 }

@@ -43,15 +43,20 @@ class EventerServices {
     }
   }
 
-  Future<void> editEvent({EventModel model}) async {
+  Future<void> editEvent(
+      {String id,
+      String title,
+      String desc,
+      String dateString,
+      bool isChecked = true}) async {
     try {
       await dio.request(
-        '$baseApi/events/${model.id}',
+        '$baseApi/events/$id',
         data: {
-          "name": model.title,
-          "description": model.desc,
-          "date": model.date.toIso8601String(),
-          "checkedOut": model.checkedOut
+          "name": title,
+          "description": desc,
+          "date": dateString,
+          "checkedOut": isChecked,
         },
         options: Options(method: 'PUT'),
       );
