@@ -1,6 +1,7 @@
 import 'package:eventer/blocs/item_bloc/item_bloc.dart';
 import 'package:eventer/blocs/timer_bloc/timer_bloc.dart';
 import 'package:eventer/constants.dart';
+import 'package:eventer/screens/details_page.dart';
 import 'package:eventer/screens/home_screen_provider.dart';
 import 'package:eventer/widgets/event_card/checkbox_widget.dart';
 import 'package:eventer/widgets/event_card/desc_event.dart';
@@ -110,13 +111,13 @@ class EventCard extends StatelessWidget {
                             IconButton(
                                 icon: Icon(Icons.edit),
                                 onPressed: () {
-                                  BlocProvider.of<ItemBloc>(context)
-                                      .add(ItemEditEvent());
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (BuildContext context) =>
-                                  //             HomeScreenProvider()));
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          DetailsPage(model: state.model),
+                                    ),
+                                  );
                                 }),
                             IconButton(
                               icon: Icon(Icons.delete_forever),

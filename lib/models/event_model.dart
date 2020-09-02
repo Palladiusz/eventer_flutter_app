@@ -8,13 +8,13 @@ class EventModel extends Equatable {
   final String id;
 
   @JsonKey(name: "name")
-  String title;
+  final String title;
 
   @JsonKey(name: "description")
-  String desc;
+  final String desc;
 
-  DateTime date;
-  bool checkedOut;
+  final DateTime date;
+  final bool checkedOut;
 
   EventModel({
     this.id,

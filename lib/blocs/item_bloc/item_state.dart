@@ -11,21 +11,16 @@ class ItemInitial extends ItemState {}
 
 class ItemStateBase extends ItemState {
   final EventModel model;
+  final String test;
 
-  ItemStateBase({this.model});
+  ItemStateBase({this.test = "test kek", this.model});
 
-  ItemStateBase copyWith({EventModel model}) {
-    return ItemStateBase(model: model ?? this.model);
+  ItemStateBase copyWith({EventModel model, String test}) {
+    return ItemStateBase(model: model ?? this.model, test: test ?? this.test);
   }
 
   @override
   List<Object> get props => [model];
-}
-
-class ItemCheckboxState extends ItemState {
-  final bool isChecked;
-
-  ItemCheckboxState({this.isChecked});
 }
 
 class ItemEditState extends ItemState {

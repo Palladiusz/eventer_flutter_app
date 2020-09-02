@@ -11,23 +11,10 @@ part 'form_item_event.dart';
 part 'form_item_state.dart';
 
 class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
-  FormItemBloc(this.model) : super(FormItemInitial()) {
-    titleField = BehaviorBlocField<String>();
-    if (model?.title?.isNotEmpty ?? false) {
-      titleField.emit(model.title);
-    }
-
-    if (model?.desc?.isNotEmpty ?? false) {
-      descField.emit(model.desc);
-    }
-
-    if (model?.date != null) {
-      dateField.emit(model.date);
-    }
-  }
+  FormItemBloc() : super(FormItemInitial());
   var _eventerServices = EventerServices();
 
-  BehaviorBlocField<String> titleField;
+  final titleField = BehaviorBlocField<String>();
   final descField = BehaviorBlocField<String>();
   final dateField = BehaviorBlocField<DateTime>();
 
@@ -38,8 +25,6 @@ class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
             desc?.isNotEmpty == true &&
             date != null;
       });
-
-  final EventModel model;
 
   @override
   Stream<FormItemState> mapEventToState(
