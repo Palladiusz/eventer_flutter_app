@@ -1,10 +1,7 @@
-import 'package:eventer/blocs/bloc_field.dart';
-import 'package:eventer/blocs/form_item/form_item_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TitleForm extends StatelessWidget {
-  const TitleForm({
+class EditDesc extends StatelessWidget {
+  const EditDesc({
     Key key,
     this.myController,
   }) : super(key: key);
@@ -13,7 +10,8 @@ class TitleForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250,
+      width: 300,
+      height: 150,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.black,
@@ -21,22 +19,22 @@ class TitleForm extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
-        controller: myController,
-        maxLength: 32,
         maxLines: null,
+        expands: true,
+        maxLength: 256,
+        controller: myController,
         decoration: InputDecoration(
           counterStyle: TextStyle(color: Colors.white),
-          hintText: 'Tap to add tittle',
+          border: InputBorder.none,
+          hintText: 'Tap to add description',
           hintStyle: TextStyle(
-            fontSize: 28,
+            fontSize: 18,
             color: Colors.grey,
           ),
-          border: InputBorder.none,
         ),
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 28),
-        onChanged: (value) => BlocProvider.of<FormItemBloc>(context)
-            .add(FormItemUpdateTitleEvent(myController.text)),
+        style: TextStyle(fontSize: 18),
+        onChanged: null,
       ),
     );
   }

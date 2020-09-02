@@ -30,7 +30,7 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
       _eventerServices.editEvent(
           model: model.copyWith(checkedOut: model.checkedOut));
       yield ItemStateBase()
-          .copyWith(model: model.copyWith(checkedOut: model.checkedOut));
+          .copyWith(model: model.copyWith(checkedOut: !model.checkedOut));
       print(model.checkedOut);
     }
     if (event is ItemDeleteEvent) {
@@ -39,7 +39,12 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     }
     if (event is ItemEditEvent) {
       //TODO
-      _eventerServices.editEvent(model: model.copyWith(desc: 'mememmee'));
+      // _eventerServices.editEvent(model: model.copyWith(desc: ));
+      yield ItemEditState(model.title, model.desc, model.date);
+    }
+    if (event is ItemSubmitEditEvent) {
+      _eventerServices.editEvent(
+          model: model.copyWith(desc: event.desc, title: event.title));
     }
   }
 

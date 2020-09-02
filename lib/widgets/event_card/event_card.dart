@@ -5,6 +5,7 @@ import 'package:eventer/constants.dart';
 import 'package:eventer/screens/home_screen_provider.dart';
 import 'package:eventer/widgets/event_card/checkbox_widget.dart';
 import 'package:eventer/widgets/event_card/desc_event.dart';
+import 'package:eventer/widgets/event_card/edit/edit.dart';
 import 'package:eventer/widgets/event_card/timer_bloc_widget.dart';
 import 'package:eventer/widgets/event_card/title.dart';
 import 'package:expandable/expandable.dart';
@@ -112,11 +113,11 @@ class EventCard extends StatelessWidget {
                                 onPressed: () {
                                   BlocProvider.of<ItemBloc>(context)
                                       .add(ItemEditEvent());
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (BuildContext context) =>
-                                              HomeScreenProvider()));
+                                  // Navigator.push(
+                                  //     context,
+                                  //     MaterialPageRoute(
+                                  //         builder: (BuildContext context) =>
+                                  //             HomeScreenProvider()));
                                 }),
                             IconButton(
                               icon: Icon(Icons.delete_forever),
@@ -136,6 +137,12 @@ class EventCard extends StatelessWidget {
                     ),
                   ],
                 ),
+              );
+            } else if (state is ItemEditState) {
+              return EditWidget(
+                title: state.title,
+                desc: state.desc,
+                date: state.date,
               );
             } else {
               return Container(

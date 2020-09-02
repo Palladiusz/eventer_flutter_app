@@ -27,3 +27,11 @@ class ItemCheckboxState extends ItemState {
 
   ItemCheckboxState({this.isChecked});
 }
+
+class ItemEditState extends ItemState {
+  final String title;
+  final String desc;
+  final DateTime date;
+
+  ItemEditState(this.title, this.desc, this.date);
+}

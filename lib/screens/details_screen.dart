@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatelessWidget {
   static const String id = '/details_screen';
+
   final descController = TextEditingController();
   final titleController = TextEditingController();
 

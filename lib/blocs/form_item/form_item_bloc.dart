@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:eventer/blocs/bloc_field.dart';
 import 'package:eventer/models/event_model.dart';
 import 'package:eventer/services/eventer_services.dart';
 
@@ -11,6 +12,7 @@ part 'form_item_state.dart';
 class FormItemBloc extends Bloc<FormItemEvent, FormItemState> {
   FormItemBloc(this.model) : super(FormItemInitial());
   var _eventerServices = EventerServices();
+  final titleField = BehaviorBlocField<String>(streamModifing: (s) => s);
   final EventModel model;
 
   @override
