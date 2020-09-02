@@ -20,24 +20,19 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
     ItemEvent event,
   ) async* {
     if (event is LoadItemsEvent) {
-      yield ItemStateBase(model: model, test: "kek nie test");
+      yield ItemStateBase(model: model);
     }
 
     if (event is ItemCheckEvent && state is ItemStateBase) {
-      // TODO work checkbox on finished events
       final newModel = model.copyWith(checkedOut: !model.checkedOut);
       _eventerServices.editEvent(model: newModel);
       model = newModel;
       yield (state as ItemStateBase).copyWith(model: newModel);
-      print(newModel.checkedOut);
     }
     if (event is ItemDeleteEvent) {
-      //TODO
       _eventerServices.deleteEvent(id: model.id);
     }
     if (event is ItemEditEvent) {
-      //TODO
-      // _eventerServices.editEvent(model: model.copyWith(desc: ));
       yield ItemEditState(model.title, model.desc, model.date);
     }
     if (event is ItemSubmitEditEvent) {

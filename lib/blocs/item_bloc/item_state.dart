@@ -11,12 +11,11 @@ class ItemInitial extends ItemState {}
 
 class ItemStateBase extends ItemState {
   final EventModel model;
-  final String test;
 
-  ItemStateBase({this.test = "test kek", this.model});
+  ItemStateBase({this.model});
 
-  ItemStateBase copyWith({EventModel model, String test}) {
-    return ItemStateBase(model: model ?? this.model, test: test ?? this.test);
+  ItemStateBase copyWith({EventModel model}) {
+    return ItemStateBase(model: model ?? this.model);
   }
 
   @override

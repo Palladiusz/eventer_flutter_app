@@ -6,7 +6,7 @@ class EventerServices {
   final dio = Dio();
   var uuid = Uuid();
 
-  final baseApi = "http://localhost:3000";
+  final baseApi = "http://10.0.2.2:3000";
 
   Future<List<EventModel>> fetchData() async {
     Response response = await dio.get('$baseApi/events');
