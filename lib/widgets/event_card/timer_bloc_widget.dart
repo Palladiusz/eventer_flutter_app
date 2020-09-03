@@ -1,4 +1,3 @@
-import 'package:eventer/blocs/item_bloc/item_bloc.dart';
 import 'package:eventer/blocs/timer_bloc/timer_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

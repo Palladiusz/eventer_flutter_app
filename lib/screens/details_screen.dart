@@ -1,6 +1,5 @@
 import 'package:eventer/blocs/form_item/form_item_bloc.dart';
 import 'package:eventer/constants.dart';
-import 'package:eventer/models/event_model.dart';
 import 'package:eventer/widgets/details_screen/date_form.dart';
 import 'package:eventer/widgets/details_screen/desc_form.dart';
 import 'package:eventer/widgets/details_screen/submit_form_button.dart';

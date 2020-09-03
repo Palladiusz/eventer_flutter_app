@@ -72,8 +72,4 @@ class EventerServices {
   }
 
   String formatNum(num) => num.toString().padLeft(2, '0');
-
-  Stream<bool> notNullValidator(value) async* {
-    yield (value != null);
-  }
 }
